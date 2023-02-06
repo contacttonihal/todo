@@ -1,0 +1,31 @@
+<div mat-dialog-title>
+    <h1>Add New ToDo</h1>
+</div>
+<form [formGroup]="todoForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" placeholder="Title" formControlName="title">
+            </mat-form-field>           
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput type="email" placeholder="Description" formControlName="description">
+            </mat-form-field>         
+        </div>
+        
+        <div class="row">           
+            <mat-checkbox formControlName="isactive" >
+            </mat-checkbox>    
+            <mat-label style="margin-top: 10px;">Active</mat-label> 
+        </div>
+       
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
